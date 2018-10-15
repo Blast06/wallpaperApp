@@ -1,0 +1,16 @@
+{
+    "data": [
+      {
+        "id": 55386012,
+        "title": "Async - Remodels",
+        "link": "https://www.deezer.com/album/55386012",
+        "cover_medium": "https://cdns-images.dzcdn.net/images/cover/e6fcbd7554a5f0a601774a7b1071b318/250x250-000000-80-0-0.jpg",
+        "genre_id": "Electro",
+        "fans": 600,
+        "tracks": [
+            {"title_short": "andata1" },
+            {"title_short": "andata2" }
+        ]
+      }
+    ]
+  }
