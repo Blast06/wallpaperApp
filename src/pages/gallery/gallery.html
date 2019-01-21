@@ -1,0 +1,19 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>gallery</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-row>
+        <ion-col col-6 *ngFor="let image of imagenes | async ">
+            <img [src]="image.url" (click)="enviar(image.url)">
+            <p></p>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

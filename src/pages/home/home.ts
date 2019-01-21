@@ -1,68 +1,114 @@
-import { AlbumsProvider } from './../../providers/albums/albums';
+import { AngularFireDatabase } from '@angular/fire/database';
+
+import { GalleryPage } from './../gallery/gallery';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FRASES_DE_AMOR, SORRY, JUNTOS_X_100PRE, SALUDOS_DESPEDIDAS, AMOR_GRACIOSAS, CARTAS_AMOR, PERDONAME, TE_EXTRANO } from '../../assets/data/API_ENDPOINTS';
+import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
+import { ImagesProvider } from '../../providers/images/images';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+
+export interface Item { nombre: string; url: string }
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
+
+
 export class HomePage {
 
-  tracks:any[];
+  tracks: any[];
+  imagenes: any[] = [];
+  imgs: Observable<any[]>;
+  private itemsCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>;
   constructor(public navCtrl: NavController,
-              public alb:AlbumsProvider) {
+    public http: HttpClient,
+    public _img: ImagesProvider,
+    public afDB: AngularFireDatabase,
+    public afs: AngularFirestore) {
 
-                this.getAlb();
+    this.imgs = afDB.list('Frases cortas').valueChanges();
+
 
   }
 
-  getAlb()
-  {
 
-    /*
+  //TO REFORMAT WHEN ADMIN PANEL UPDATE FOR TESTING
+  // goToGallery(gallery: string) {
 
-    LEE ESTO:
+  //   this.itemsCollection = this.afs.collection<Item>('Frases cortas'); //donde 'img' es el nombre de la carpeta
+  //   this.items = this.itemsCollection.valueChanges();
+  //   this.navCtrl.push(GalleryPage, { imagenes: this.items });
 
-    en la linea 31 cuando llamo al metodo que esta en el provider, utilizando la libreria httpclient.
-    fijate bien como accedo al objeto despues del subscribe pongo "data:any" porque asi no me dara erro el 
-    editor al utilizar acciones como en la linea 35 "data.data", aunque tambien se puede acceder a partes de un
-    objeto de la manera que vez en la linea 36, que incluso puede ser mejor en muchos casos.
-    En las otras lineas fui entrando mas al objeto hasta llegar donde decias. Despues lo imprimo en el console.log
-    para que veas como queda. Y despues lo hago con un foreach recorriendolos.
+  // }
 
+  goToGallery(number: any) {
 
-    DOS cosas:
+    switch (number) {
 
-    en la vista, lo haras de otra forma, no con un foreach, lo haras con un NgFor(de este lado no se usa ngfor)
-    
-    la otra es....
+      case 1:
+        this.itemsCollection = this.afs.collection<Item>('frases_amor'); //donde '' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
 
-    que se pudo haber hecho algo como esto:
+        break;
 
-    this.tracks =data.data.0.tracks.data;
+      case 2:
+        this.itemsCollection = this.afs.collection<Item>('Disculpas de amor'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-    pero bueeno, se ve raro no?
+      case 3:
+        this.itemsCollection = this.afs.collection<Item>('juntos x 1oopre'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-    */
+      case 4:
+        this.itemsCollection = this.afs.collection<Item>('saludos y despedidas'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
+      case 5:
+        this.itemsCollection = this.afs.collection<Item>('Amor graciosas'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-    this.alb.getDataTracksOne().subscribe((data:any) => {
-      console.log(data.data);
-      this.tracks = data.data['0'];
-      this.tracks = this.tracks['tracks'];
-      this.tracks = this.tracks['data'];
+      case 6:
+        this.itemsCollection = this.afs.collection<Item>('Cartas de Amor'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-      console.log(this.tracks);
+      case 7: // FALTA ESTA
+        this.itemsCollection = this.afs.collection<Item>('Imagenes de te extrano'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-      this.tracks.forEach((track) => {
-        console.log(track.title_short);
-      })
+      case 8:
+        this.itemsCollection = this.afs.collection<Item>('Frases cortas'); //donde 'img' es el nombre de la carpeta
+        this.items = this.itemsCollection.valueChanges();
+        this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        break;
 
-    })
+      default:
+        break;
+    }
+
   }
 
 
 
-  
+
+
 
 }

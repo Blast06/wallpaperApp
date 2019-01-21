@@ -7,6 +7,7 @@
     text-align: center;
     }
 
+
     .card-title {
     position: absolute;
     top: 36%;
@@ -23,5 +24,26 @@
     width: 100%;
     color: #fff;
     }
+
+    .card-subtitle_minicards {
+    font-size: 1.3em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+    font-style: bold;
+    
+    }
+
+      .image-cover {
+        object-fit: cover;
+        object-position: right top;
+      }
+
+      .last{
+          color: chocolate;
+      }
+
+    
     
 }
