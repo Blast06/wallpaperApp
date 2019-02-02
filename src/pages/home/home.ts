@@ -1,7 +1,7 @@
 import { AngularFireDatabase } from '@angular/fire/database';
 
 import { GalleryPage } from './../gallery/gallery';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FRASES_DE_AMOR, SORRY, JUNTOS_X_100PRE, SALUDOS_DESPEDIDAS, AMOR_GRACIOSAS, CARTAS_AMOR, PERDONAME, TE_EXTRANO } from '../../assets/data/API_ENDPOINTS';
@@ -21,6 +21,9 @@ export interface Item { nombre: string; url: string }
 
 export class HomePage {
 
+  headers = new HttpHeaders({'user_key': '62e4a639ea687dc5638d67b0949915a7'});
+
+
   tracks: any[];
   imagenes: any[] = [];
   imgs: Observable<any[]>;
@@ -34,8 +37,8 @@ export class HomePage {
 
     this.imgs = afDB.list('Frases cortas').valueChanges();
 
-
   }
+
 
 
   //TO REFORMAT WHEN ADMIN PANEL UPDATE FOR TESTING
@@ -52,9 +55,10 @@ export class HomePage {
     switch (number) {
 
       case 1:
-        this.itemsCollection = this.afs.collection<Item>('frases_amor'); //donde '' es el nombre de la carpeta
+        this.itemsCollection = this.afs.collection<Item>('Amor_a_Distancia'); //donde '' es el nombre de la carpeta
         this.items = this.itemsCollection.valueChanges();
         this.navCtrl.push(GalleryPage, { imagenes: this.items });
+        console.log(JSON.stringify(this.items));
 
         break;
 
@@ -68,6 +72,7 @@ export class HomePage {
         this.itemsCollection = this.afs.collection<Item>('juntos x 1oopre'); //donde 'img' es el nombre de la carpeta
         this.items = this.itemsCollection.valueChanges();
         this.navCtrl.push(GalleryPage, { imagenes: this.items });
+
         break;
 
       case 4:

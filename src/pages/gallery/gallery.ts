@@ -20,7 +20,7 @@ export class GalleryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.imagenes = this.navParams.get('imagenes');
-    console.log(this.imagenes);
+    console.log(JSON.stringify(this.imagenes));
   }
 
   ionViewDidLoad() {
@@ -29,8 +29,10 @@ export class GalleryPage {
 
   enviar(image:Image){
     this.navCtrl.push(ImagenPage, { imagen:image });
+    console.log(JSON.stringify(image));
   }
 
+  
   
   
 
