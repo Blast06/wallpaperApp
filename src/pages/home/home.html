@@ -17,13 +17,13 @@
         <ion-col col-6>
             <ion-card (click)="goToGallery(1)">
                 <img src="assets/imgs/love.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards">De Amor</div>
+                <div class="card-subtitle_minicards ">De Amor</div>
             </ion-card>
         </ion-col>
         <ion-col col-6>
             <ion-card (click)="goToGallery(2)">
                 <img src="assets/imgs/sorry.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards">Disculpas</div>
+                <div class="card-subtitle_minicards ">Disculpas</div>
             </ion-card>
         </ion-col>
         <ion-col col-6>
@@ -35,7 +35,7 @@
         <ion-col col-6>
             <ion-card (click)="goToGallery(5)">
                 <img src="assets/imgs/funny_love.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards">Amor,Graciosas</div>
+                <div class="card-subtitle_minicards ">Amor,Graciosas</div>
             </ion-card>
         </ion-col>
     </ion-row>
@@ -46,30 +46,31 @@
 
     <ion-card (click)="goToGallery(4)">
         <img src="assets/imgs/hibye.jpg" class="image-cover" />
-        <div class="card-title">Saludos y despedidas</div>
+        <div class="card-title ">Saludos y despedidas</div>
     </ion-card>
 
     <ion-row>
         <ion-col col-6>
             <ion-card (click)="goToGallery(8)">
                 <img src="assets/imgs/missyou.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards">Te extrano</div>
+                <div class="card-subtitle_minicards ">Te extrano</div>
             </ion-card>
         </ion-col>
         <ion-col col-6>
             <ion-card (click)="goToGallery(7)">
                 <img src="assets/imgs/forgiveme.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards">Perdoname</div>
+                <div class="card-subtitle_minicards ">Perdoname</div>
             </ion-card>
         </ion-col>
     </ion-row>
 
     <ion-card (click)="goToGallery(6)">
         <img src="assets/imgs/loveletters.png" class="image-cover" />
-        <div class="card-title last">Cartas de amor</div>
+        <div class="card-title  ">Cartas de amor</div>
     </ion-card>
 
-    <ion-fab right bottom>
+    <!-- FAB buton -->
+    <!-- <ion-fab right bottom>
         <button ion-fab color="primary">
       <ion-icon name="add"></ion-icon>
     </button>
@@ -87,6 +88,12 @@
         <ion-icon name="logo-googleplus"></ion-icon>
       </button>
         </ion-fab-list>
-    </ion-fab>
+    </ion-fab> -->
+
+    <ion-card (click)="goToAppsPage()">
+        <img src="assets/imgs/moreapps.jpg" class="image-cover" />
+        <div class="card-title ">Mas apps</div>
+    </ion-card>
+
 
 </ion-content>

@@ -1,14 +1,17 @@
 <ion-header>
-
     <ion-navbar>
         <ion-title>imagen</ion-title>
     </ion-navbar>
+
+
 
 </ion-header>
 
 
 <ion-content padding>
 
-    <img [src]="imagen" (click)="descargar(imagen)">
-
+    <img [src]="imagen">
+    <div class="compartir bounceIn">
+        <button ion-button round (click)="descargar(imagen)">Compartir</button>
+    </div>
 </ion-content>

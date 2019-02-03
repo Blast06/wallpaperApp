@@ -1,4 +1,4 @@
-import { GalleryPageModule } from './../pages/gallery/gallery.module';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -29,7 +29,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
+
+//Pages
 import { ImagenPageModule } from '../pages/imagen/imagen.module';
+import { MyappsPageModule } from './../pages/myapps/myapps.module';
+import { GalleryPageModule } from './../pages/gallery/gallery.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { ImagenPageModule } from '../pages/imagen/imagen.module';
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
     ImagenPageModule,
-    GalleryPageModule
+    GalleryPageModule,
+    MyappsPageModule
     
     
   ],

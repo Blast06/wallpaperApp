@@ -82,10 +82,11 @@ export class ImagenPage {
       this.dataPath = this.file.dataDirectory;
 
     }
+
+
+
   }
 
-
- 
 
 
 

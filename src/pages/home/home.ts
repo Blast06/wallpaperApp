@@ -4,8 +4,6 @@ import { GalleryPage } from './../gallery/gallery';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FRASES_DE_AMOR, SORRY, JUNTOS_X_100PRE, SALUDOS_DESPEDIDAS, AMOR_GRACIOSAS, CARTAS_AMOR, PERDONAME, TE_EXTRANO } from '../../assets/data/API_ENDPOINTS';
-import { map } from "rxjs/operators";
 import { Observable } from 'rxjs';
 import { ImagesProvider } from '../../providers/images/images';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -21,7 +19,6 @@ export interface Item { nombre: string; url: string }
 
 export class HomePage {
 
-  headers = new HttpHeaders({'user_key': '62e4a639ea687dc5638d67b0949915a7'});
 
 
   tracks: any[];
@@ -108,6 +105,11 @@ export class HomePage {
       default:
         break;
     }
+
+
+  }
+
+  goToAppsPage(){
 
   }
 
