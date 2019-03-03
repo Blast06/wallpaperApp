@@ -1,7 +1,7 @@
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 
 
 //providers
-import { ImagesProvider } from '../providers/images/images';
+
 
 //plugins
 import { HTTP } from '@ionic-native/http/ngx';
@@ -20,6 +20,8 @@ import { FileTransfer } from "@ionic-native/file-transfer";
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Base64 } from '@ionic-native/base64/ngx';
+import { AppRate } from '@ionic-native/app-rate/ngx';
+
 
 
 
@@ -34,11 +36,25 @@ import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestor
 import { ImagenPageModule } from '../pages/imagen/imagen.module';
 import { MyappsPageModule } from './../pages/myapps/myapps.module';
 import { GalleryPageModule } from './../pages/gallery/gallery.module';
+import { Market } from '@ionic-native/market/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { HomePageModule } from '../pages/home/home.module';
+import { RateappPage } from '../pages/rateapp/rateapp';
+import { AboutPage } from '../pages/about/about';
+import { PrivacypoliticsPage } from '../pages/privacypolitics/privacypolitics';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    RateappPage,
+    AboutPage,
+    PrivacypoliticsPage
+    
+
+    
+    
     
   ],
   imports: [
@@ -49,17 +65,23 @@ import { GalleryPageModule } from './../pages/gallery/gallery.module';
     AngularFireModule.initializeApp(firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule.enablePersistence(),
+    // AngularFirestoreModule.enablePersistence(),
     ImagenPageModule,
     GalleryPageModule,
-    MyappsPageModule
+    MyappsPageModule,
+    HomePageModule,
+    
     
     
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    RateappPage,
+    AboutPage,
+    PrivacypoliticsPage
+    
+    
     
   ],
   providers: [
@@ -67,7 +89,6 @@ import { GalleryPageModule } from './../pages/gallery/gallery.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
-    ImagesProvider,
     AngularFirestore,
     File,
     HTTP,
@@ -75,9 +96,14 @@ import { GalleryPageModule } from './../pages/gallery/gallery.module';
     AndroidPermissions,
     SocialSharing,
     Base64,
+    Market,
+    InAppBrowser,
+    AppRate,
+    
   
     
     
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

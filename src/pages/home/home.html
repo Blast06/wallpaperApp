@@ -58,16 +58,46 @@
         </ion-col>
         <ion-col col-6>
             <ion-card (click)="goToGallery(7)">
+                <img src="assets/imgs/frases_cortas.jpg" class="image-cover" />
+                <div class="card-subtitle_minicards ">Frases cortas</div>
+            </ion-card>
+        </ion-col>
+        <ion-col col-6>
+            <ion-card (click)="goToGallery(9)">
                 <img src="assets/imgs/forgiveme.jpg" class="image-cover" />
-                <div class="card-subtitle_minicards ">Perdoname</div>
+                <div class="card-subtitle_minicards ">Frases atrevidas</div>
+            </ion-card>
+        </ion-col>
+        <ion-col col-6>
+            <ion-card (click)="goToGallery(10)">
+                <img src="assets/imgs/frases_besos.jpg" class="image-cover" />
+                <div class="card-subtitle_minicards ">Frases de besos</div>
             </ion-card>
         </ion-col>
     </ion-row>
+
+
 
     <ion-card (click)="goToGallery(6)">
         <img src="assets/imgs/loveletters.png" class="image-cover" />
         <div class="card-title  ">Cartas de amor</div>
     </ion-card>
+
+    <ion-row>
+        <ion-col col-6>
+            <ion-card (click)="goToGallery(11)">
+                <img src="assets/imgs/missyou.jpg" class="image-cover" />
+                <div class="card-subtitle_minicards ">Frases de amor</div>
+            </ion-card>
+        </ion-col>
+
+        <ion-col col-6>
+            <ion-card (click)="goToGallery(12)">
+                <img src="assets/imgs/preguntas_amor.jpg" class="image-cover" />
+                <div class="card-subtitle_minicards ">Preguntas amor</div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
 
     <!-- FAB buton -->
     <!-- <ion-fab right bottom>
@@ -90,10 +120,24 @@
         </ion-fab-list>
     </ion-fab> -->
 
+    <!-- <ion-row *ngIf="show">
+        <ion-col col-6 *ngFor="let item of extra_categories">
+            <ion-card (click)="goToAppsPage(item.tipo)">
+                <img src="assets/imgs/love.jpg" alt="" class="image-cover">
+                <div class="card-subtitle_minicards">{{item.tipo}}</div>
+            </ion-card>
+        </ion-col>
+    </ion-row> -->
+
     <ion-card (click)="goToAppsPage()">
         <img src="assets/imgs/moreapps.jpg" class="image-cover" />
         <div class="card-title ">Mas apps</div>
     </ion-card>
+    <!-- <ion-card (click)="showRatePrompt()">
+        <img src="assets/imgs/moreapps.jpg" class="image-cover" />
+        <div class="card-title ">Calificanos</div>
+    </ion-card> -->
 
+    <!-- REVISAR EL PORQUE EL NGFOR NO FUNCIONA CON EL ARRAY  -->
 
 </ion-content>

@@ -1,11 +1,14 @@
 page-myapps {
     .estilos {
-        width: 313px;
+        width: 250px;
         border-radius: 10px;
         background-color: white;
-        padding-bottom: 4px;
+        padding-bottom: 1px;
     }
     .track {
         margin-top: 4px;
+        color: color($colors, primary);
+        font-style: bold;
+        text-align: center;
     }
 }

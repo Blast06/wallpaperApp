@@ -1,11 +1,14 @@
 import { ImagenPage } from './../imagen/imagen';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Scroll } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
+import {  AngularFirestore } from '@angular/fire/firestore';
+import {map} from 'rxjs/operators';
+import _ from 'lodash';
+import { Imagen } from '../../models/imagen.model';
+import { PaginationService } from '../../providers/pagination.service';
 
-interface Image{
-  largeImageURL:string;
-}
+
 
 @IonicPage()
 @Component({
@@ -14,26 +17,56 @@ interface Image{
 })
 
 
+
 export class GalleryPage {
 
-  imagenes:Observable<any[]>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  @ViewChild(Scroll) scrollElement: Scroll;
+  batch: number = 4;
+  last: any = Date.now();
+  empty: boolean = false;
+  loading: boolean = false;
 
-    this.imagenes = this.navParams.get('imagenes');
-    console.log(JSON.stringify(this.imagenes));
+  nombreList: string;
+  showSpinner: boolean = true;
+
+  imagenes: Observable<Imagen[]>;
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public afs: AngularFirestore, 
+    public page: PaginationService) {
+
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleryPage');
+
+  ionViewWillEnter(){
+    this.page.reset();
+    this.nombreList = this.navParams.get('nombreList');
+    console.log(JSON.stringify(this.nombreList));
+    this.getImagenes(this.nombreList);
+
   }
 
-  enviar(image:Image){
-    this.navCtrl.push(ImagenPage, { imagen:image });
+ 
+
+
+  onScrollEnd(event)
+  {
+    console.log('Scroll end');
+    this.page.more();
+  }
+   
+
+
+
+  enviar(image: Imagen) {
+    this.navCtrl.push(ImagenPage, { imagen: image });
     console.log(JSON.stringify(image));
   }
-
-  
-  
-  
+  getImagenes(nombreList) {
+    console.log('nombrelist :', nombreList);
+    this.page.init(nombreList, 'nombre', { reverse: true, prepend: false });
+    
+  }
 
 }

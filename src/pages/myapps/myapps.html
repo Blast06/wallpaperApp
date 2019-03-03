@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>myapps</ion-title>
+        <ion-title>Mis apps</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -17,7 +17,7 @@
 
     <ion-row>
         <ion-col col-6 class="estilos" *ngFor="let app of apps | async">
-            <img [src]="app.img" (click)="ir(app)">
+            <img [src]="app.url" (click)="ir(app.appUrl)">
             <p class="track">{{app.nombre}}</p>
         </ion-col>
     </ion-row>

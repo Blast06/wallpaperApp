@@ -3,28 +3,24 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Market } from '@ionic-native/market/ngx';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { apps } from 'firebase';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
-/**
- * Generated class for the MyappsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-export interface Item { nombre: string; url: string; img: string; }
+
+export interface Item { nombre: string; url: string; appUrl: string; }
 @IonicPage()
 @Component({
   selector: 'page-myapps',
   templateUrl: 'myapps.html',
 })
 export class MyappsPage {
-  private itemsCollection: AngularFirestoreCollection<Item>
+  // private itemsCollection: AngularFirestoreCollection<Item>
   apps: Observable<Item[]>
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public market:Market,
-              public afs: AngularFirestore,) {
+              public afs: AngularFirestore,
+              public ina: InAppBrowser,) {
 
                 this.apps = afs.collection<Item>('apps').valueChanges();
   }
@@ -35,7 +31,12 @@ export class MyappsPage {
 
   ir(app:any){
 
-    this.market.open(app);
+    // this.ina.create('market://details?id=' + app);
+    // market://details?id=market://details?id=io.com.domiradio
+    // this.market.open(app);
+    let appUrl = `https://play.google.com/store/apps/details?id=${app}`;
+
+    window.open(appUrl);
 
   }
 

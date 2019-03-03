@@ -89,6 +89,11 @@ export class ImagenPage {
 
 
 
+  // TODO 
+  // test app on other phones 
+
+
+
 
   descargar(imagen: string) {
 

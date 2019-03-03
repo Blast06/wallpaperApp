@@ -10,7 +10,6 @@
         width: 100%;
         font-weight: bold;
         color: #fff;
-        font-family: Dosis;
     }
     .card-subtitle {
         font-size: 1.0em;
@@ -18,7 +17,6 @@
         top: 52%;
         width: 100%;
         color: #fff;
-        font-family: Dosis;
     }
     .card-subtitle_minicards {
         font-size: 1.3em;
@@ -27,6 +25,15 @@
         width: 100%;
         color: #fff;
         font-style: bold;
+    }
+    .card-subtitle,
+    .card-subtitle_minicards,
+    .card-title {
+        background: rgb(170, 187, 97);
+        /* Fallback */
+        background: rgba(82, 83, 79, 0.5);
+        position: relative;
+        margin-top: -40px;
     }
     .image-cover {
         object-fit: cover;

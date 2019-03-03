@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ionic-wallpaperapp</name>
-    <description>An awesome Ionic/Cordova app.</description>
+<widget id="dt.love.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Frases Te amo amor</name>
+    <description>Frases de amor y mas</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -20,6 +20,8 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -92,6 +94,9 @@
     <plugin name="cordova-plugin-file-downloader" spec="^0.4.0" />
     <plugin name="cordova-plugin-advanced-http" spec="^2.0.4" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
-    <engine name="android" spec="~6.4.0" />
     <plugin name="cordova-plugin-market" spec="^1.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-apprate" spec="^1.4.0" />
+    <engine name="android" spec="~6.4.0" />
 </widget>
